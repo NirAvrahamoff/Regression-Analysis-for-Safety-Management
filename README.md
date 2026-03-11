@@ -20,17 +20,27 @@ Linear&polynomial.ipynb
 Logistic&Poisson&Binomial.ipynb
 
 
-The notebooks contain the full modeling process including data exploration, model fitting and evaluation.
+Each notebook focuses on a different modeling approach and includes model building, evaluation, and visualization.
 
 ---
 
-# Model Comparison
+# Project 1 — Linear, Interaction and Polynomial Regression
 
-The following table compares the performance of the main regression models.
+This project analyzes how different regression models perform when predicting a continuous outcome.
 
-![Model Comparison](images/compare_models.png)
+The following models were compared:
 
-Polynomial regression achieved the best performance based on:
+• Linear Regression  
+• Linear Regression with Interaction Terms  
+• Polynomial Regression
+
+---
+
+## Model Comparison
+
+![Model Comparison](image/compare_models.png)
+
+The comparison shows that the **Polynomial Regression model (degree 2)** achieved the best performance based on:
 
 • Highest R²  
 • Lowest AIC and BIC  
@@ -38,88 +48,126 @@ Polynomial regression achieved the best performance based on:
 
 ---
 
-# Model Selection Using AIC and BIC
+## Model Selection Using AIC and BIC
 
-To determine the optimal polynomial degree we compared model complexity using information criteria.
+![AIC BIC](image/bic.png)
 
-![AIC BIC](images/bic.png)
-
-Degree **2** achieved the lowest AIC and BIC values, indicating the best balance between model fit and complexity.
+The information criteria indicate that **Polynomial Degree 2** provides the best trade-off between model accuracy and complexity.
 
 ---
 
-# Linear Regression
+## Linear Regression
 
-Linear regression assumes a straight-line relationship between predictors and the response variable.
+![Linear Model](image/linear.png)
 
-![Linear Model](images/linear.png)
-
-While the model captures the overall trend, it does not fully explain nonlinear patterns in the data.
+Linear regression assumes a simple linear relationship between predictors and the response variable.
 
 ---
 
-# Interaction Model
+## Interaction Model
+
+![Interaction Model](image/interaction.png)
 
 Adding interaction terms allows the model to capture relationships between variables.
 
-![Interaction Model](images/interaction.png)
+---
 
-This improves the model performance compared to the basic linear regression.
+## Polynomial Regression
+
+![Polynomial Model](image/polynomial.png)
+
+Polynomial regression captures nonlinear patterns in the data and significantly improves model accuracy.
 
 ---
 
-# Polynomial Regression
+# Project 2 — Logistic Regression
 
-Polynomial regression allows modeling nonlinear relationships between variables.
+Logistic regression is used for classification problems where the response variable represents probability.
 
-![Polynomial Model](images/polynomial.png)
-
-This model provided the best predictive performance.
+The model estimates the probability of an event and evaluates classification thresholds.
 
 ---
 
-# Logistic Regression
+## Sensitivity vs Specificity Trade-off
 
-Logistic regression models probabilities and allows classification decisions based on a threshold.
+![Sensitivity Specificity](image/0.6.png)
 
-![Sensitivity vs Specificity](images/0.6.png)
+This graph illustrates how sensitivity and specificity change across different classification thresholds.
 
-The model evaluates the trade-off between sensitivity and specificity across different thresholds.
-
----
-
-# Poisson Regression
-
-Poisson regression is used for modeling count data such as the number of events.
-
-![3D Poisson Surface](images/3d.png)
-
-The model predicts the expected number of events based on explanatory variables.
+A valid range of thresholds balances both measures.
 
 ---
 
-# Poisson Distribution Behavior
+# Project 3 — Poisson Regression and Count Data Analysis
 
-The following analysis shows the probability of observations falling within ±2 standard deviations.
+This project analyzes count data and investigates the properties of the Poisson distribution.
 
-![Probability ±2SD](images/2sd.png)
+Poisson regression is commonly used to model:
 
-The distribution concentrates around the expected range as λ increases.
-
----
-
-# Residual Analysis
-
-Residual diagnostics help evaluate model fit.
-
-![Residual Analysis](images/response.png)
-
-Residuals outside the ±2 range indicate deviations from model assumptions.
+• number of events  
+• accident counts  
+• occurrences over time
 
 ---
 
-# Mean vs Variance Analysis
+## Expected Number of Events (Poisson Surface)
 
-For Poisson distributions the theoretical property is:
+![Poisson Surface](image/3d.png)
+
+The surface illustrates how predictors influence the expected number of events.
+
+---
+
+## Probability within ±2 Standard Deviations
+
+![Poisson ±2SD](image/2sd.png)
+
+The probability distribution converges around a stable range as λ increases.
+
+---
+
+## Residual Diagnostics
+
+![Residuals](image/response.png)
+
+Residual analysis helps identify deviations from model assumptions.
+
+---
+
+## Mean vs Variance Analysis
+
+For a theoretical Poisson distribution:
+
+
+The following visualization evaluates whether the data follows this property.
+
+![Mean Variance](image/mean_variance.png)
+
+When variance exceeds the mean, **over-dispersion** may occur and alternative models such as **Negative Binomial regression** may be required.
+
+---
+
+# Technologies Used
+
+Python  
+Pandas  
+NumPy  
+Statsmodels  
+Scikit-learn  
+Matplotlib  
+Seaborn  
+Jupyter Notebook
+
+---
+
+# Key Insights
+
+Different regression models are suited for different types of data:
+
+• Linear models describe continuous relationships  
+• Logistic models estimate probabilities for classification  
+• Poisson models describe count processes  
+
+Selecting the correct statistical model is essential for producing reliable predictions and meaningful insights.
 
 
