@@ -1,108 +1,125 @@
 # Regression Models Analysis
 
-This project explores several statistical regression models and demonstrates how different models can describe data in different ways.
+This project explores several statistical regression models and compares how different models describe the same data.
 
-The project includes two notebooks and analyzes three main types of regression:
+The project includes two notebooks and investigates multiple regression approaches:
 
-- Linear & Polynomial Regression
-- Logistic Regression
-- Poisson / Negative Binomial Regression
+• Linear Regression  
+• Polynomial Regression  
+• Logistic Regression  
+• Poisson Regression  
+• Negative Binomial concepts
 
-The goal is to understand when each model should be used and how the results differ depending on the statistical assumptions.
+The goal is to understand how model assumptions influence predictions and model performance.
 
 ---
 
 # Project Structure
 
+Linear&polynomial.ipynb
+Logistic&Poisson&Binomial.ipynb
 
-The notebooks include data exploration, model fitting and visualization.
 
----
-
-# Linear & Polynomial Regression
-
-The first part of the project analyzes how environmental variables influence machine performance.
-
-The models tested:
-
-- Linear Regression
-- Polynomial Regression
-- Linear Regression with interaction terms
-
-### Data Visualization
-
-![Linear Scatter](images/linear_scatter.png)
-
-This visualization shows the relationship between environmental variables and machine performance.
+The notebooks contain the full modeling process including data exploration, model fitting and evaluation.
 
 ---
 
-### Linear Model Prediction
+# Model Comparison
 
-![Predicted vs Actual](images/predicted_vs_actual.png)
+The following table compares the performance of the main regression models.
 
-This plot compares the predicted values from the linear regression model with the true values.
+![Model Comparison](images/compare_models.png)
+
+Polynomial regression achieved the best performance based on:
+
+• Highest R²  
+• Lowest AIC and BIC  
+• Lowest test MSE
 
 ---
 
-### Polynomial Regression
+# Model Selection Using AIC and BIC
 
-![Polynomial Regression](images/polynomial_fit.png)
+To determine the optimal polynomial degree we compared model complexity using information criteria.
 
-Polynomial regression allows capturing nonlinear relationships between variables.
+![AIC BIC](images/bic.png)
+
+Degree **2** achieved the lowest AIC and BIC values, indicating the best balance between model fit and complexity.
+
+---
+
+# Linear Regression
+
+Linear regression assumes a straight-line relationship between predictors and the response variable.
+
+![Linear Model](images/linear.png)
+
+While the model captures the overall trend, it does not fully explain nonlinear patterns in the data.
+
+---
+
+# Interaction Model
+
+Adding interaction terms allows the model to capture relationships between variables.
+
+![Interaction Model](images/interaction.png)
+
+This improves the model performance compared to the basic linear regression.
+
+---
+
+# Polynomial Regression
+
+Polynomial regression allows modeling nonlinear relationships between variables.
+
+![Polynomial Model](images/polynomial.png)
+
+This model provided the best predictive performance.
 
 ---
 
 # Logistic Regression
 
-Logistic regression is used when the response variable represents **probability or classification**.
+Logistic regression models probabilities and allows classification decisions based on a threshold.
 
-In this analysis the model estimates the probability of an event occurring based on several predictors.
+![Sensitivity vs Specificity](images/0.6.png)
 
-![Logistic Probability](images/logistic_probability.png)
-
-The logistic curve maps values into probabilities between 0 and 1.
+The model evaluates the trade-off between sensitivity and specificity across different thresholds.
 
 ---
 
-# Poisson and Negative Binomial Regression
+# Poisson Regression
 
-Poisson regression is used for **count data**, such as number of events occurring during a period of time.
+Poisson regression is used for modeling count data such as the number of events.
 
-Examples include:
+![3D Poisson Surface](images/3d.png)
 
-- number of failures
-- number of accidents
-- number of events per time unit
-
-![Poisson Distribution](images/poisson_distribution.png)
-
-Negative Binomial regression extends the Poisson model when the data shows **over-dispersion**.
+The model predicts the expected number of events based on explanatory variables.
 
 ---
 
-# Technologies Used
+# Poisson Distribution Behavior
 
-- Python
-- Pandas
-- NumPy
-- Statsmodels
-- Scikit-learn
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
+The following analysis shows the probability of observations falling within ±2 standard deviations.
+
+![Probability ±2SD](images/2sd.png)
+
+The distribution concentrates around the expected range as λ increases.
 
 ---
 
-# Key Insight
+# Residual Analysis
 
-Different regression models describe data in different ways.
+Residual diagnostics help evaluate model fit.
 
-- Linear regression assumes a straight relationship
-- Polynomial regression captures nonlinear patterns
-- Logistic regression models probabilities
-- Poisson regression models event counts
+![Residual Analysis](images/response.png)
 
-Choosing the correct model depends on the structure of the data and the research question.
+Residuals outside the ±2 range indicate deviations from model assumptions.
+
+---
+
+# Mean vs Variance Analysis
+
+For Poisson distributions the theoretical property is:
 
 
